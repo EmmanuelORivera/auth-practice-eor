@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Joi = require("@hapi/joi");
+const Joi = require("joi");
 const bcrypt = require("bcrypt");
 
 const db = require("../db/connection");
@@ -28,7 +28,7 @@ router.post("/signup", async (req, res, next) => {
     } else {
       //Hash password
       const salt = await bcrypt.genSalt();
-      const hashPassword = await bcrypt.hash(req.body.password, salt);
+      const hashPassword = await bcrypt.hash(req.body.password.trim(), salt);
 
       const insertedUser = await users.insert({
         username: req.body.username,

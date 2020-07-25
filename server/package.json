@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hapi/joi": "^17.1.1",
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
+    "joi": "^17.1.1",
     "monk": "^7.3.0",
     "morgan": "^1.10.0"
   },
