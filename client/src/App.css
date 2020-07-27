@@ -1,0 +1,20 @@
+.container {
+  text-align: center;
+  padding: 2em;
+  transform: translate(0, 50%);
+}
+.submit {
+  position: relative;
+  margin-right: 1em;
+  float: right;
+}
+.error {
+  background: #ecc8c5;
+  top: 33em;
+  color: #b32f2d;
+}
+.error > p > span {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}

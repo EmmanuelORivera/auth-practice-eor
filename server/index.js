@@ -1,19 +1,24 @@
-const express = require("express");
-const morgan = require("morgan");
+const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 
-const auth = require("./auth");
+const auth = require('./auth');
 
-app.use(morgan("dev"));
+require('dotenv').config();
+
+app.use(morgan('dev'));
+
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use(express.json());
 
-app.use("/auth", auth);
+app.use('/auth', auth);
 
 function notFound(req, res, next) {
   res.status(404);
-  const error = new Error("Not Found -" + req.originalUrl);
+  const error = new Error('Not Found -' + req.originalUrl);
   next(error);
 }
 function errorHandler(err, req, res, next) {
@@ -25,6 +30,6 @@ function errorHandler(err, req, res, next) {
 }
 app.use(notFound);
 app.use(errorHandler);
-const PORT = 3000;
+const PORT = 5000;
 
-app.listen(PORT, () => console.log("Server running"));
+app.listen(PORT, () => console.log('Server running'));
